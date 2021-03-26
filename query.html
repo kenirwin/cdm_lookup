@@ -27,6 +27,18 @@
             //     alert('Load was performed.');
             // });
         });
+        $('#findItem input[type=submit]').click(function(e) { 
+            e.preventDefault();
+            pointer = $('#findItem input[name=pointer').val();
+            url = getItemMetadataUrl(pointer);
+            $('#itemMetadataUrl').html('<a href="'+url+'" target="_new"><div class="btn btn-primary">Item metadata for <b>'+pointer+'</b></div></a>');
+        })
+        $('#itemUrl input[type=submit]').click(function(e) { 
+            e.preventDefault();
+            find = $('#itemUrl input[name=find').val();
+            url = getItemUrl(find);
+            $('#itemUrlLink').html('<a href="'+url+'" target="_new"><div class="btn btn-primary">Link for item <b>'+find+'</b></div></a>');
+        })
     })</script>
 </head>
 <body class="container">
@@ -48,8 +60,19 @@
                 <input type="text" name="pointer"/>
                 <input type="submit"/>
             </form>
-            <div id="findItemresults">
-                <span id="findItemUrl"></span>
+            <div id="itemMetadataResults">
+                <span id="itemMetadataUrl"></span>
+            </div>
+        </div>
+
+        <div class="col">
+            <form id="itemUrl">
+                <label for="find">Find</label>
+                <input type="text" name="find"/>
+                <input type="submit"/>
+            </form>
+            <div id="itemUrlResults">
+                <span id="itemUrlLink"></span>
             </div>
         </div>
     </div>
