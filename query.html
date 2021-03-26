@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spec API Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+    
+    <script src="search.js"></script>
+    <script>$(document).ready(function() {
+        $('#searchRecords input[type=submit]').click(function(e) {
+            e.preventDefault();
+            terms = $('#searchRecords input[name=search_term').val();
+            url = GetSearchUrl(terms);
+            $('#searchUrl').html('<a href="'+url+'" target="_new"><div class="btn btn-primary">Search for <b>'+terms+'</b></div></a>');
+            // $.ajax({ url: url, crossDomain: true }).done(function (data) {
+            //     $('#results').html(data);
+            //     alert('Load was performed.');
+            // });
+        });
+    })</script>
+</head>
+<body class="container">
+    <div class="row">
+        <div class="col">
+            <form id="searchRecords">
+                <label for="search_term">Search Terms</label>
+                <input type="text" name="search_term"/>
+                <input type="submit"/>
+            </form>
+            <div id="results">
+                <span id="searchUrl"></span>
+            </div>
+        </div>
+
+        <div class="col">
+            <form id="findItem">
+                <label for="pointer">Pointer</label>
+                <input type="text" name="pointer"/>
+                <input type="submit"/>
+            </form>
+            <div id="findItemresults">
+                <span id="findItemUrl"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
