@@ -27,6 +27,12 @@
             //     alert('Load was performed.');
             // });
         });
+        $('#getImageInfo input[type=submit]').click(function(e) { 
+            e.preventDefault();
+            pointer = $('#getImageInfo input[name=pointer').val();
+            url = getImageInfoUrl(pointer)
+            $('#getImageInfoUrl').html('<a href="'+url+'" target="_new"><div class="btn btn-primary">Item metadata for <b>'+pointer+'</b></div></a>');
+        })
         $('#findItem input[type=submit]').click(function(e) { 
             e.preventDefault();
             pointer = $('#findItem input[name=pointer').val();
@@ -43,7 +49,8 @@
 </head>
 <body class="container">
     <div class="row">
-        <div class="col">
+        <div class="form-group">
+            <h2 class="h4">Keyword Query</h2>
             <form id="searchRecords">
                 <label for="search_term">Search Terms</label>
                 <input type="text" name="search_term"/>
@@ -54,7 +61,20 @@
             </div>
         </div>
 
-        <div class="col">
+        <div class="form-group">
+            <h2 class="h4">Get Image Info</h2>
+            <form id="getImageInfo">
+                <label for="pointer">Pointer</label>
+                <input type="text" name="pointer"/>
+                <input type="submit"/>
+            </form>
+            <div id="getImageInfoResults">
+                <span id="getImageInfoUrl"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h2 class="h4">Get Item Info</h2>
             <form id="findItem">
                 <label for="pointer">Pointer</label>
                 <input type="text" name="pointer"/>
@@ -65,7 +85,8 @@
             </div>
         </div>
 
-        <div class="col">
+        <div class="form-group">
+            <h2 class="h4">Get Item Url</h2>
             <form id="itemUrl">
                 <label for="find">Find</label>
                 <input type="text" name="find"/>

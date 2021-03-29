@@ -39,3 +39,9 @@ function getItemMetadataUrl(pointer) {
 function getItemUrl(find) {
   return baseUrl + 'dmGetItemUrl/' + collection + '/' + find + '/' + format;
 }
+
+function getImageInfoUrl(pointer) {
+  return (
+    baseUrl + 'dmGetImageInfo/' + collection + '/' + pointer + '/' + format
+  );
+}
