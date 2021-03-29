@@ -31,7 +31,7 @@
             e.preventDefault();
             pointer = $('#getImageInfo input[name=pointer').val();
             url = getImageInfoUrl(pointer)
-            $('#getImageInfoUrl').html('<a href="'+url+'" target="_new"><div class="btn btn-primary">Item metadata for <b>'+pointer+'</b></div></a>');
+            $('#getImageInfoUrl').html('<a href="'+url+'" target="_new"><div class="btn btn-primary">Image Info for <b>'+pointer+'</b></div></a>');
         })
         $('#findItem input[type=submit]').click(function(e) { 
             e.preventDefault();
